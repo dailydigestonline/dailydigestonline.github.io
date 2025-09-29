@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Digest Online</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 font-sans antialiased">
+    <!-- Header: Sticky navigation with flexbox and hover transitions -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+          <a href="/index.html" class="hover:text-blue-600 transition-colors duration-300"
+            >Daily Digest Online</a
+          >
+        </h1>
+        <nav>
+          <ul class="flex space-x-4 sm:space-x-6">
+            <li>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300"
+                >Categories</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero: Gradient background with responsive typography -->
+    <section
+      class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 sm:py-20"
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+        >
+          Welcome to Daily Digest Online
+        </h2>
+        <p
+          class="text-base sm:text-lg lg:text-xl mb-6 max-w-2xl mx-auto text-gray-100"
+        >
+          Your source for the latest news, insights, and stories from around the
+          world.
+        </p>
+        <a
+          href="#"
+          class="inline-block bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 shadow-md"
+          >Read Latest Posts</a
+        >
+      </div>
+    </section>
+
+    <!-- Featured Posts: Container for dynamically rendered posts -->
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
+        Featured Posts
+      </h2>
+      <div
+        id="posts-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+      ></div>
+    </section>
+
+    <!-- Footer: Minimal with responsive text and hover effects -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-sm sm:text-base mb-4">
+          &copy; 2025 Daily Digest Online. All rights reserved.
+        </p>
+        <div class="flex justify-center space-x-4 sm:space-x-6">
+          <a
+            href="#"
+            class="text-gray-400 hover:text-white transition-colors duration-300"
+            >Privacy Policy</a
+          >
+          <a
+            href="#"
+            class="text-gray-400 hover:text-white transition-colors duration-300"
+            >Terms of Service</a
+          >
+          <a
+            href="#"
+            class="text-gray-400 hover:text-white transition-colors duration-300"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript to dynamically render blog posts -->
+    <script>
+      // Sample blog post data
+      const posts = [
+        {
+          title: "Queer-Coded Confidence Starts Beneath: Expressive Men’s Underwear That Owns the Moment",
+          category: "lifestyle",
+          date: "Oct 1, 2025",
+          description:
+            "DealByEthan.shop offers a curated selection of expressive men’s underwear—featuring over 40 bold brands and more than 11,000 products. From pouch-enhancing silhouettes to daring jockstraps and genderless designs, the site celebrates fashion that empowers every body. Whether you're shopping for provocative basics or mood-driven statement pieces, DealByEthan.shop delivers unapologetic style with editorial-safe clarity.",
+          image: "https://i.ibb.co.com/WNJr1Yfd/expressive-men-s-underwear.jpg",
+          link: "/expressive-men-s-underwear.html",
+        },
+        
+      ];
+
+      // Function to render posts
+      function renderPosts() {
+        const container = document.getElementById("posts-container");
+        container.innerHTML = ""; // Clear existing content
+        posts.forEach((post) => {
+          const postElement = document.createElement("div");
+          postElement.className =
+            "bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300";
+          postElement.innerHTML = `
+                    <img src="${post.image}" alt="Post Image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-sm text-gray-500 uppercase tracking-wide">${post.category} • ${post.date}</span>
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mt-2 line-clamp-2">${post.title}</h3>
+                        <p class="text-gray-600 mt-2 line-clamp-3">${post.description}</p>
+                        <a href="${post.link}" class="text-blue-600 font-semibold mt-4 inline-block hover:underline transition-colors duration-300">Read More</a>
+                    </div>
+                `;
+          container.appendChild(postElement);
+        });
+      }
+
+      // Render posts on page load
+      document.addEventListener("DOMContentLoaded", renderPosts);
+    </script>
+  </body>
+</html>
